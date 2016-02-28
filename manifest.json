@@ -1,0 +1,10 @@
+{
+    "manifest_version": 2,
+    "description": "51talk-helper",
+    "name": "51talk-helper",
+    "version": "1.0",
+    "content_scripts": [ {
+        "matches": [ "http://*/*", "https://*/*" ],
+        "js": [ "jquery-2.2.1.min.js", "51talk-helper.js" ]
+   } ]
+}
