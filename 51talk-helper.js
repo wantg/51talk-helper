@@ -1,19 +1,23 @@
 function fire() {
     $('a').each(function(index, el) {
         var el = $(el);
-        var matched = el.attr('href').match(/teacher\/info\/t/);//返回数组
-        if (matched != null) {
-            var tId = matched['input'].substr(matched['index']);
-            if (tId.indexOf('?')>-1) {    
-                tId = tId.substr(0, tId.indexOf('?'));
-            }
-            tId = tId.substr(tId.indexOf('/t')+2);
-            // console.log(tId);
-            loadTeacherInfo(tId, function(teacherInfo){
-                el.prepend('<span class="teacher-info">'+teacherInfo+'</span>');
-                // console.log(teacherInfo);
-            });
+        if (el.find('img').length == 0) {
+            return;
         }
+        var matched = el.attr('href').match(/teacher\/info\/t/);//返回数组
+        if (matched == null) {
+            return;
+        }
+        var tId = matched['input'].substr(matched['index']);
+        if (tId.indexOf('?')>-1) {    
+            tId = tId.substr(0, tId.indexOf('?'));
+        }
+        tId = tId.substr(tId.indexOf('/t')+2);
+        // console.log(tId);
+        loadTeacherInfo(tId, function(teacherInfo){
+            el.prepend('<span class="teacher-info">'+teacherInfo+'</span>');
+            // console.log(teacherInfo);
+        });
     });
 }
 
@@ -36,6 +40,7 @@ if (self.location.href.indexOf('http://www.51talk.com') == 0) {
                 background:#fff;
                 padding:1px;
                 border-radius:4px;
+                line-height:initial;
             }
         </style>
     `);
