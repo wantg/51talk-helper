@@ -1,6 +1,6 @@
 51talk-helper
 =======
-show how many student favorite the teacher when you book lesson
+show teacher's popular level when booking lesson
 
 ## Contact
 wantg78@gmail.com
