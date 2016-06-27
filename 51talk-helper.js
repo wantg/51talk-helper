@@ -1,6 +1,6 @@
 function fire() {
 	var tIds = []
-    $('a').each(function(index, el) {
+    $('a[href]').each(function(index, el) {
         var el = $(el);
         if (el.find('img').length == 0) {
             // return;
@@ -31,7 +31,7 @@ function loadTeacherInfo(tIds){
         markup = markup.substr(markup.indexOf('>')+1);
         markup = markup.substr(0, markup.indexOf('人'));
         // console.log(teachedId, markup)
-	    $('a').each(function(index, el) {
+	    $('a[href]').each(function(index, el) {
         	var el = $(el);
 	    	if (el.attr('href').indexOf('/teacher/info/t'+teachedId)>-1 && el.find('img').length>0) {
 	    		el.prepend('<span class="teacher-info">'+markup+'</span>');
@@ -40,7 +40,7 @@ function loadTeacherInfo(tIds){
         if(tIds.length>0){
         	setTimeout(function(){
 			    loadTeacherInfo(tIds);
-        	}, 200)
+        	}, 100)
         }
     });
 }
